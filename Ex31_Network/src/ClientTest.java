@@ -1,4 +1,7 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.InetAddress;
@@ -45,6 +48,8 @@ public class ClientTest {
 //			writer.println(msg);
 //			writer.flush();
 			
+			
+			
 			// 12_ 여러번 받아보자!!
 			while(true) {
 				System.out.print("보낼 메시지를 입력하세요(exit를 입력하면 종료)");
@@ -52,9 +57,11 @@ public class ClientTest {
 				if(msg.equalsIgnoreCase("exit")) break;
 				writer.println(msg);
 				writer.flush();
+				
+				
 			}
 			writer.close();
-			
+
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
