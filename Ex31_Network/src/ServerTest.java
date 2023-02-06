@@ -37,12 +37,16 @@ public class ServerTest {
 		// 6_ 서버용 프로그램을 작성
 		// 6_1 서버소켓부터 만들자
 		try {
-			ServerSocket serverSocket = new ServerSocket(10001); // port 번호가 필요하다!
+			ServerSocket serverSocket = new ServerSocket(10001);// port 번호가 필요하다!
+			
 			System.out.println("서버소켓 생성");
 			
 			// 6_2 클라이언트의 접속을 기다리자.
+
+			
 			System.out.println("클라이언트의 접속을 기다리는 중 . . .");
-			Socket socket = serverSocket.accept(); // 6_3 여기서 커서(스레드)가 대기함. 언제까지? 클라이언트가 접속 할 때까지. 클라이언트가 접속을 해야 소켓이 전달된다!
+			Socket socket1 = serverSocket.accept(); // 6_3 여기서 커서(스레드)가 대기함. 언제까지? 클라이언트가 접속 할 때까지. 클라이언트가 접속을 해야 소켓이 전달된다!
+			Socket socket2 = serverSocket.accept();
 			System.out.println("클라이언트 접속 완료!"); // 6_4 이 코드로 넘어왔다는 이야기는 클라이언트가 접속했다는 이야기!
 			
 			// 9_ 클라이언트로 부터 데이터를 읽어오는 무지개로드(InputStream) 생성하자!
@@ -51,8 +55,8 @@ public class ServerTest {
 //			String msg = reader.readLine();
 //			System.out.println("받은 메시지 : " + msg);
 			
-			ThreadRead tr = new ThreadRead(socket);
-			ThreadWrite tw = new ThreadWrite(socket);
+			ThreadSecondSocket tr = new ThreadSecondSocket(socket1);
+			ThreadFirstSocket tw = new ThreadFirstSocket(socket2);
 			
 			tw.start();
 			tr.start();
@@ -60,7 +64,6 @@ public class ServerTest {
 		
 			// 13_ 여기도 여러번 받아오자!
 			
-			System.out.println("모든 접속 종료");
 
 			
 		} catch (IOException e) {
@@ -71,10 +74,44 @@ public class ServerTest {
 
 }
 
-class ThreadRead extends Thread {
+class ThreadFirstSocket extends Thread {
 	Socket socket;
 	
-	public ThreadRead(Socket socket) {
+	public ThreadFirstSocket(Socket socket) {
+		this.socket = socket;
+	}
+	@Override
+	public void run() {
+		try {
+			
+			OutputStream os = socket.getOutputStream();
+			PrintWriter writer = new PrintWriter(os);
+			Scanner scan = new Scanner(System.in);
+			
+			InputStream is = socket.getInputStream();
+			InputStreamReader isr = new InputStreamReader(is); // 문자 스트림으로 변환
+			BufferedReader reader = new BufferedReader(isr);
+			
+			while(true) {
+				String msgFrom = scan.nextLine();
+				if(msgFrom.equalsIgnoreCase("exit")) break;
+				writer.print(msgFrom);
+				writer.flush();
+				
+				String msgTO = reader.readLine();
+			}
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
+class ThreadSecondSocket extends Thread {
+	Socket socket;
+	
+	public ThreadSecondSocket(Socket socket) {
 		this.socket = socket;
 	}
 	@Override
@@ -100,29 +137,3 @@ class ThreadRead extends Thread {
 	}
 }
 
-class ThreadWrite extends Thread {
-	Socket socket;
-	
-	public ThreadWrite(Socket socket) {
-		this.socket = socket;
-	}
-	@Override
-	public void run() {
-		try {
-			OutputStream os = socket.getOutputStream();
-			PrintWriter writer = new PrintWriter(os);
-			Scanner scan = new Scanner(System.in);
-			
-			while(true) {
-				String msg = scan.nextLine();
-				if(msg.equalsIgnoreCase("exit")) break;
-				writer.print(msg);
-				writer.flush();
-			}
-			writer.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-}
