@@ -1,0 +1,47 @@
+import java.util.Random;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		// 1_ Object class : 모든 Java 클래스의 부모 클래스(최상위 클래스) 
+		// 2_ 자바 언어에 존재하는 모든 클래스들은 extends의 명시여부와 상관없이
+		// 무조건 Object 라는 클래스를 상속받은 상태로 만들어진다.
+		
+		// 4_ Test 참조변수 생성
+		Test t = new Test();
+		
+		// 5_ Test 클래스는 명시적으로 아무것도 상속하지 않았지만 기본적으로 Object 클래스를 상속받은 상태임.
+		// 6_ 명시적으로 다른 클래스를 상속받았더라도 Object 클래스는 상속됨.
+		// 다중상속이 아니다! 계층 상속이다.
+		
+		// 7_ Object 클래스가 가진 주요한 기능메소드들.
+		// 1. toString()
+		// 2. equals(Object obj)
+		// 3. hashCode()
+		// 4. getClass()
+		// 5. wait(), notify(), notifyAll() : 이건 Thread 수업에서 소개!
+		
+		// 1) toString() : 객체에 대한 소개 문자열을 리턴해주는 기능메소드
+		System.out.println(t.toString()); // default : "클래스명@해시코드"
+		// 해시코드 : 메모리 물리주소를 상대적인 주소로 표현한 숫자(자바에서의 주소) 
+		Test t2 = new Test();
+		System.out.println(t2.toString()); // t와 해시코드가 다르기에 다른 객체임.
+		Test t3 = t2;
+		System.out.println(t3.toString()); // t2와 같은 객체를 공유하기에 같은 해시코드
+		
+		// 당연히 java System Api 2000 여개들도 toString() 을 보유하고 있음.
+		Random rnd = new Random();
+		System.out.println(rnd.toString()); // default : "패키지명.클래스명@해시코드"
+		
+		// .toString() 의 특이한 결과
+		String name = "sam";
+		System.out.println(name.toString()); // 객체 소개글이 아니라 문자열 데이터가 나옴.
+		// 원래의 toString() 기능으로 동작하지 않았다는것은 메소드를 오버라이드하여 기능을 개선했다는 의미.
+		// 즉, Object 클래스의 메소드도 역시 기능개선 오버라이드가 가능하다!
+		
+		First f = new First();
+	}
+
+}

@@ -1,0 +1,8 @@
+
+public class Second implements Test{
+	@Override
+	public void aaa() {
+		// TODO Auto-generated method stub
+		
+	}
+}

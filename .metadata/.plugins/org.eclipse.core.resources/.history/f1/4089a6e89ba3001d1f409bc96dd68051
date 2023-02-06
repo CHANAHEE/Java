@@ -1,0 +1,92 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		while(true) {
+			Scanner scan = new Scanner(System.in);
+			String num = scan.nextLine();
+			int idx = -1;
+			boolean isCard , isId;
+			
+			Classification cf = new Classification();
+			
+			
+			isCard = cf.isCNumber(num);
+			isId = cf.isPNumber(num);
+			
+			
+			if(!isCard && !isId) {
+				System.out.println("개인정보가 아닙니다.");
+			}else if(isId) {
+				System.out.println("주민번호가 맞습니다.");
+			}else {
+				System.out.println("카드번호가 맞습니다.");
+			}
+		}
+	}
+}
+
+class Classification {
+	
+	public boolean isDelimeter(int idx) {
+		if(idx == -1) return
+		else if(idx == 6)
+	}
+	public String converTo(String num) {
+		num = num.replaceAll("-", "");
+		num = num.replaceAll(" ", "");
+		return num;
+	}
+	
+	public boolean checkPNum(String num) {
+		int sum = 0, result = 0;
+		
+		for(int i=0;i<8;i++) {
+			sum += (num.charAt(i)-48) * (i+2);
+			
+		}
+		for(int i=0;i<4;i++) {
+			sum += (num.charAt(i+8)-48) * (i+2);
+			
+		}
+		result = (11 - (sum % 11)) % 10;
+		if(result == num.charAt(num.length()-1) - 48) {
+			return true;
+		}
+		return false;
+		
+	}
+
+	public boolean isPNumber(String num) {
+		
+		boolean correct = true;
+		converTo(num);
+		
+		if(num.length() == 13) {
+			for(int i=0;i<num.length();i++) {
+				char ch = num.charAt(i);
+				correct = correct && (ch >= 48 && ch <= 57);
+			}
+			if(correct)
+				return checkPNum(num);
+		}
+		return false;
+	}
+	
+	public boolean isCNumber(String num) {
+		
+		boolean correct = true;
+		converTo(num);
+		
+		if(num.length() == 16) {
+			for(int i=0;i<num.length();i++) {
+				char ch = num.charAt(i);
+				correct = correct && (ch >= 48 && ch <= 57);
+			}
+			if(correct)
+				return true;	
+		}
+		return false;
+	}
+}

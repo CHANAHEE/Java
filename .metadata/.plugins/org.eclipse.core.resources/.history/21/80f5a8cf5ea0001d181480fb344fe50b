@@ -1,0 +1,10 @@
+
+public class First implements Test{
+
+	@Override
+	public void aaa() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

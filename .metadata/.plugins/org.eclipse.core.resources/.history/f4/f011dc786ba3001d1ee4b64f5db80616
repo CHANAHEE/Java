@@ -1,0 +1,22 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+public class FileIOTest {
+
+	public static void main(String[] args) {
+		
+		// 1_ 파일 복사 프로그램 제작해보자
+		// HDD 의 D 드라이브에 있는 하나의 폴더에 들어있는 문서(aaa.txt) 를 읽어서 가져온다음에 D 드라이브에 있는 copy 폴더에 bbb.txt 로 저장해주자.
+		// 2_ 원본 파일의 경로와 파일명, 확장자까지 정해보자. 파일경로는 String 으로도 저장 가능!
+		String srcPath = "D:/files/aaa.txt";
+		
+		// 3_ 원본파일과 연결하는 무지개 로드(InputStream) 생성
+		try {
+			FileInputStream fis = new FileInputStream(srcPath);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

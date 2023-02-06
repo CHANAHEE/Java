@@ -1,0 +1,43 @@
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+public class SenderTest {
+
+	public static void main(String[] args) {
+		// 1_ UDP : User Datagram Protocol  -  마치 택배보내기와 비슷(속도가 빠른 방식)
+		// 2_ 사용방식
+		try {
+			// 2_1 우편을 보낼 우체통 만들기
+			DatagramSocket socket = new DatagramSocket();
+			
+			// 2_2 보낼 데이터 만들기
+			Scanner scan = new Scanner(System.in);
+			System.out.print("보낼 데이터 : ");
+			String msg = scan.nextLine();
+			
+			// 2_3 보낼 데이터(msg) 를 우편으로 보내기 위해 택배상자(DatagramPacket) 만들기
+			byte[] bytes = msg.getBytes();
+			InetAddress addr = InetAddress.getByName("localhost"); // 받는사람 주소로 InetAddress 객체 생성
+			DatagramPacket packet = new DatagramPacket(bytes, bytes.length, addr, 10003); // 10003 : 포트번호
+			
+			// 2_4 우체통에 택배박스 넣어서 보내기
+			socket.send(packet);			
+			
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

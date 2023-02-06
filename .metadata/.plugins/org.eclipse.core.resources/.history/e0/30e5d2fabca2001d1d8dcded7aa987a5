@@ -1,0 +1,35 @@
+
+public class JoinTest {
+	public static void main(String[] args) {
+		JThread j = new JThread();
+		j.start(); // 3_ 5초 정도 소요되는 작업을 시작!
+		
+		// 5_ J 작업이 완료된 후에 아래 작업을 하고 싶을 때...
+		// 그럼 synchronized 사용하면 될까? 안되지... 키워드를 사용할 메서드도 없고, 동기화 블럭으로 처리할 객체도 없으니까...
+		// 동기화는 같은 놈을 동시에 건드릴까봐 사용하는거지.. 다른것임.
+		// 어떤 스레드의 작업이 끝날때까지 어떤 스레드도 무조건 대기시키는 기능
+		j.join();
+		
+		// 4_ main thread 가 다른 작업 수행
+		for(int i = 0; i < 10 ; i++) {
+			System.out.println("main...");
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {}
+		}
+		
+	}
+}
+
+// 1_ 클래스 생성
+class JThread extends Thread {
+	@Override
+	public void run() {
+		for(int i = 0; i < 10; i++) {
+			System.out.println("aaa");
+			try {
+				Thread.sleep(500); // 2_ 헷갈리니까 Thread. 을 적어주는게 좋다. 권장하는 방법. Thread 의 static 메소드라는걸 명시해주자!
+			} catch (InterruptedException e) {}
+		}
+	}
+}

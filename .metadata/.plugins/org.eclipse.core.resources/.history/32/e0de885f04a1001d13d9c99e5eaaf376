@@ -1,0 +1,11 @@
+
+public class First {
+
+	int num = 100;
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "" + num;
+	}
+}

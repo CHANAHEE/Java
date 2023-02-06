@@ -1,0 +1,8 @@
+
+public class Second implements Test{
+	@Override
+	public void aaa() {
+		// TODO Auto-generated method stub
+		System.out.println("Second 클래스가 구현한 aaa");
+	}
+}

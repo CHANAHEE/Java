@@ -1,0 +1,8 @@
+
+public class First {
+	int a;
+	
+	void showFirst() {
+		System.out.println("showFirst 입니다.");
+	}
+}

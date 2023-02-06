@@ -1,0 +1,29 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class SetTest {
+
+	public static void main(String[] args) {
+		
+		// 1_ Set 인터페이스 : 순서 X, index X, 중복데이터 X
+		
+		// Set<String> set = new Set(); // error : 인터페이스는 객체 생성 불가!
+		
+		// Set 인터페이스를 구현한 하위 클래스들 : HashSet, TreeSet, LinkedHashSet
+		
+		HashSet<String> set = new HashSet<String>(); // 성능이 가장 우수함.
+		
+		// 2_ 요소 추가
+		set.add(new String("aaa"));
+		set.add("bbb");
+		set.add("ccc");
+		set.add("ddd");
+		set.add("eee");
+		set.add("ccc"); // 4_ 중복 데이터를 추가해보기.
+		
+		// 3_ 요소 개수 출력 및 요소 값 확인
+		System.out.println(set.size() + " : " + set.toString());
+		
+	}
+
+}

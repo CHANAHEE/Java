@@ -1,0 +1,45 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		// 26_ 예) 앱에 동물 캐릭터 3종류(Dog, Cat, Pig) 각각의 클래스 만들기
+		Dog d = new Dog();
+		Cat c = new Cat();
+		Pig p = new Pig();
+		
+		// 27_ 각각의 기능 실행
+		d.say();
+		c.say();
+		p.say();
+		System.out.println();
+		
+		// 28_ 만약 이런 동물캐릭터가 여러마리라면??
+		// 즉, Dog 5마리 , Cat 10마리, Pig 4마리가 있다고 한다면 어떻게 할까?
+		// 하나씩 참조변수를 만드는것은 미친것 같음.
+		// 29_ 그래서 배운 배열이라는 개념을 생각해보자!
+		Dog[] dogs = new Dog[5];
+		dogs[0] = new Dog();
+		dogs[1] = new Dog();
+		dogs[2] = new Dog();
+				
+		dogs[0].say();
+		dogs[1].say();
+		dogs[2].say();
+		
+		// 30_ 이런식으로 배열로 만들면 캐릭터 종류별로만 묶을 수 있어서 제어할 때 은근 짜증~
+		// 그래서 동물캐릭터 객체 모두를 제어할 수 있는 참조변수만 있다면...
+		// 이를 하나의 배열로 묶을 수 있다!
+		
+		// 31_ 동물 클래스들의 부모클래스가 있다면!
+		// 그 부모클래스의 참조변수로 여러 종류의 자식객체들 모두를 참조할 수 있다!
+		// 즉 하나의 배열로 묶을 수 있을거다!
+		
+		// 32_ Dog, Cat, Pig 의 부모로 Animal 클래스를 설계해보자!
+		Animal ani;
+		// 35_ 부모 참조변수로 자식객체 참조가능 ->  업캐스팅!
+		ani = new Dog();
+	}
+
+}

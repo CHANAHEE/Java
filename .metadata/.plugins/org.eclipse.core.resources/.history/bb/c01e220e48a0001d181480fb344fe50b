@@ -1,0 +1,45 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		// 47_ 동물 캐릭터 3종류[Dog, Cat, Pig] 를 만들어 내는 기능을 가진 애니멀 공장객체를 생성해보자! 
+		
+		// 52_ AnimalFactory 의 객체부터 만들자!
+		AnimalFactory af = new AnimalFactory();
+		Dog d = (Dog)af.makeAnimal(1); // 53_ 형변환 연산자보다 . 연산자가 먼저!!
+		d.say(); // 오버라이드 된 기능 
+		d.guardHouse(); // 55_1 고유 기능
+		
+		Cat c = (Cat)af.makeAnimal(2);
+		c.say();
+		c.handleButtler(); // 55_2 고유 기능
+		
+		Pig p = (Pig)af.makeAnimal(3);
+		p.say();
+		p.eatAndEat(); // 55_3 고유 기능
+		System.out.println();
+		
+		// 56_ Animal 참조변수 1개로 여러객체 제어하기도 가능.. 나중에 배열로 적용!
+		Animal a = af.makeAnimal(1);
+		a.say();
+		// 자식 객체의 고유기능은 사용불가! 오버라이드 되어있지 않으므로!!
+		// a.guardHouse(); // error!!
+		// 그래서 고유기능들도 Animal에 오버라이드 용 메서드를 만들자니, 다른 Cat 이나 Pig 에도 그 기능이 들어가기 때문에 안된다!
+		// 그래서 down casting 을 해줘야함!
+		
+		a = af.makeAnimal(2);
+		a.say();
+		// (Cat)a.??? // 57_ 연산자 우선순위 생각하자!
+		((Cat)a).handleButtler();
+		
+		System.out.println();
+		
+		// 58_ 마지막 응용
+		// 동물캐릭터 5마리를 랜덤하게 만들어서 공통기능과 고유기능을 사용해보자!
+		// 랜덤값을 만들어내는 능력을 가진 객체를 생성하자! 
+		Random rand = new Random();
+	}
+
+}

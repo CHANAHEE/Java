@@ -1,0 +1,60 @@
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class StringIOTest {
+
+	public static void main(String[] args) {
+		
+		// 1_ 문자열 데이터를 한줄씩 또는 한단어씩 읽거나 쓰려면??
+		// 기존 바이트스트림 방식은 InputStream 을 통해서 몇바이트를 읽어야 한줄인지 파악하기 어려울 수 있다. 
+		// 그래서 조금 더 편하게 문자열 단위로 데이터를 IO 를 처리하는 문자 스트림을 사용해보자.
+		// Reader, Writer
+		
+		// 2_ 사용자 입력을 받아 그 데이터를 파일에 지속적으로 저장하는 프로그램을 만들어보자.
+		Scanner scan = new Scanner(System.in);
+		
+		while(true) {
+			System.out.print("저장할 단어를 입력하세요(exit를 입력하면 종료) : ");
+			String s = scan.next();
+			if(s.equalsIgnoreCase("exit")) {
+				System.out.println("입력이 종료됩니다.");
+				break;
+			}
+			
+			// 3_ 입력된 문자열 저장을 위한 File 객체를 생성
+			// 목표위치 : "본인프로젝트 폴더/files/data.txt"
+			File path = new File("files");
+			if(!path.exists()) path.mkdir();
+			
+			// 4_ 경로와 파일명.확장자 를 더해주자
+			File file = new File(path,"data.txt");
+			
+			// 5_ 위 파일과 연결해줄수있는 무지개로드를 만들자!! 왜? 데이터를 저장하려고(내보내려고). 그런데 이번에는 
+			// 바이트스트림 대신 문자스트림으로 사용하자.
+			try {
+				FileWriter fw = new FileWriter(file,true); // 6_ append 모드. true 면 덧붙이는게 가능하다.
+//				fw.write(s); // 7_ 저장은 잘되지만... 줄바꿈도 안되서 줄바꿈문자도 신경써야하고.. 특정 포맷으로 문자열을 만들기도 번거롭다.
+//				
+//				fw.flush();
+//				fw.close();
+				
+				// 8_ print(), println() 과 같은 기능메소드는 출력을 보다 편하게 수행할수있도록 도와준다. 
+				// 위 기능 처럼 편하게 파일에 데이터를 작성하는(저장하는) 능력의 보조스트림클래스가 존재한다!!
+				PrintWriter writer = new PrintWriter(fw);
+				writer.println(s);
+				writer.flush();
+				writer.close();
+				
+//				fw.flush();
+//				fw.close(); // 9_ 써도 되고 안써도 보조스트림만 닫아도 자동으로 처리해준다.
+			} catch (IOException e) {
+				System.out.println("사용할 파일을 찾을 수 없습니다.");
+			}
+		}
+	}
+
+}

@@ -1,0 +1,6 @@
+
+// 33_ Dog, Cat, Pig 의 부모클래스를 만들기 위해 Animal 클래스를 설계함.
+// 34_ 그리고 각 클래스에서 상속받자!
+public class Animal {
+
+}

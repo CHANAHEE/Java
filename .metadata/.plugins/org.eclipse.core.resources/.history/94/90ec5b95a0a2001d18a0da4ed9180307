@@ -1,0 +1,30 @@
+
+public class RunnableTest {
+
+	public static void main(String[] args) {
+		
+		// 1_ Thread 능력( 코드를 실행할 수 있는 능력) 을 가지는 2가지 방법
+		// 1_1 Thread 클래스를 상속한(extends) 클래스를 설계하여 사용하는 방법
+		// 1_2 Runable 인터페이스!! 를 구현한 (implements) 클래스를 설계하여 사용하는 방법
+		
+		// 2_ 왜 2가지 방법이나 있지..??
+		// 다중상속의 효과를 보고싶어서 Runable 을 이용한다~
+		// Person 클래스의 능력을 가지면서 Thread 의 능력도 있었으면 좋겠다..
+		// 자바는 다중상속이 금지되어 있음. 대신 인터페이스의 구현은 다중구현이 가능하다! 그래서 여러능력을 가질 수 있음. 
+		
+
+	}
+
+}
+
+// 3_ Person 클래스 설계
+class Person {
+	String name;
+	int age;
+	
+}
+
+// 4_  Person 클래스의 멤버를 상속받으면서 Thread 의 역할도 하는 클래스를 설계
+class PersonThread extends Person implements Runable{
+	
+}

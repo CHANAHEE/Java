@@ -1,0 +1,25 @@
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
+
+public class ReceiverTest {
+
+	public static void main(String[] args) {
+		// 3_ 받는 사용방식
+
+		try {
+			// 3_1 DatagramPacket 을 받을 우체통 준비하기
+			DatagramSocket socket = new DatagramSocket(10003);
+			
+			// 3_2 받은 우편물의 내용(데이터)을 담을 수 있는 빈 박스(DatagramPacket) 를 준비하자.
+			byte[] bytes = new byte[1024];
+			DatagramPacket packet = new DatagramPacket(bytes, bytes.length);
+			
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

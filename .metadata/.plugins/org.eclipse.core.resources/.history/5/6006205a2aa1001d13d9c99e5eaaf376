@@ -1,0 +1,16 @@
+
+public class Main3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//1_ throw : 코드를 통해 강제로 예외를 발생시키는 문법
+		
+		try {
+			System.out.println("aaa");
+			System.out.println("bbb");
+		} catch(Exception e) {
+			System.out.println("예외발생");
+		}
+	}
+
+}

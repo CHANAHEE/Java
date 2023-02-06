@@ -1,0 +1,22 @@
+
+public class Main {
+	public static void main(String[] args) {
+		
+		// 1_ 우리가 만날 수 있는 잘못된 상황들
+		// 1. Error(오류)	: 실행불가!
+		// 2. Exception(예외): 실행 중(RunTime) 문제 발생! [ 앱 사용 중에 다운되는 상황 ]
+		
+		// 2_ Exception 의 대표적인 예
+		// 1. 사용자가 잘못된 데이터를 입력하는 경우 : 숫자입력 상황에 문자를 입력하는 상황 
+		// 2. 개발자가 개발 로직이나 계산을 잘못한 경우 : 배열의 인덱스번호 오류 or 0 으로 나눗셈 
+		// 3. 네트워크나 하드웨어 오류 : 하드디스크의 파일 제어 오류, 특정 사이트(서버) 접속 오류(URL 실수, 서버 불량 등)
+		
+		// 3_ 예외처리에 대한 실습 - 예외는 발생하지만, 앱이 다운되지 않도록 하는 문법.
+		System.out.println("예외처리에 대해 알아봅시다.");
+		
+		
+		System.out.println();
+		System.out.println("프로그램 종료");
+		System.out.println();
+	}
+}

@@ -1,0 +1,11 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		// 제대로 된 캐스팅 
+		First f;
+		f.showFirst();
+	}
+
+}

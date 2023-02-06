@@ -1,0 +1,33 @@
+import java.util.HashMap;
+
+public class MapTest {
+
+	public static void main(String[] args) {
+		
+		// 1_ Map : 키-밸류 쌍으로 데이터를 저장하는 방식이다.
+		
+		// Map 도 인터페이스 이므로 바로 객체생성은 불가하다.
+		// 대신 Map 인터페이스를 구현한 하위 클래스들 : HashMap , TreeMap, LinkedHashMap, HashTable
+		
+		// 2_ HashMap<T(key),S(value)>
+		HashMap<String, String> map = new HashMap<String,String>();
+		
+		// 3_ 요소추가
+		map.put("name", "sam"); // (식별자, 값)
+		map.put("id", "CHA");
+		map.put("pass", "1234");
+		
+		// 4_ 요소개수
+		System.out.println(map.size());
+		
+		// 5_ 요소값 얻어오기
+		System.out.println(map.get("name")); // 키값으로 얻어오기
+		System.out.println(map.get("id"));
+		
+		// 6_ 데이터는 중복되지만 키 값이 다르기에 추가됨.
+		map.put("kkk", "sam"); // 6_ 데이터는 중복되지만 키 값이 
+
+		
+	}
+
+}

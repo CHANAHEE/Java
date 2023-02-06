@@ -1,0 +1,25 @@
+import java.net.DatagramSocket;
+import java.net.SocketException;
+import java.util.Scanner;
+
+public class SenderTest {
+
+	public static void main(String[] args) {
+		// 1_ UDP : User Datagram Protocol  -  마치 택배보내기와 비슷(속도가 빠른 방식)
+		// 2_ 사용방식
+		try {
+			// 2_1 우편을 보낼 우체통 만들기
+			DatagramSocket socket = new DatagramSocket();
+			
+			// 2_2 보낼 데이터 만들기
+			Scanner scan = new Scanner(System.in);
+			System.out.print("보낼 데이터 : ");
+			String msg = scan.nextLine();
+			
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

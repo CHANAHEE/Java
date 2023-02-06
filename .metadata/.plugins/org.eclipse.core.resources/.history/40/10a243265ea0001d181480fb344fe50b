@@ -1,0 +1,7 @@
+
+// 79_ interface : 추상메소드만 가지는 추상클래스임.
+// 즉, interface == abstract class
+public interface Test {
+	// 인터페이스는 오로지 추상메소드만 가지는 클래스임.
+	abstract void aaa();
+}

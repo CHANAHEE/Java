@@ -1,0 +1,22 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		// 47_ 동물 캐릭터 3종류[Dog, Cat, Pig] 를 만들어 내는 기능을 가진 애니멀 공장객체를 생성해보자! 
+		
+		// 52_ AnimalFactory 의 객체부터 만들자!
+		AnimalFactory af = new AnimalFactory();
+		Dog d = (Dog)af.makeAnimal(1); // 53_ 형변환 연산자보다 . 연산자가 먼저!!
+		d.say();
+		
+		Cat c = (Cat)af.makeAnimal(2);
+		c.say();
+		
+		Pig p = (Pig)af.makeAnimal(3);
+		p.say();
+		
+	}
+
+}

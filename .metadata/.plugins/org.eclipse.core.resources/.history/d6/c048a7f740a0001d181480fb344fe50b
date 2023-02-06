@@ -1,0 +1,9 @@
+
+public class Dog extends Animal{
+	
+	@Override
+	void say() {
+		// TODO Auto-generated method stub
+		super.say();
+	}
+}

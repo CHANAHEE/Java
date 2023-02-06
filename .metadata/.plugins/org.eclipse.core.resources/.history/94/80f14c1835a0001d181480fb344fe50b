@@ -1,0 +1,14 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		// 제대로 된 캐스팅 
+		First f = new First();
+		Second s = new Second();
+		
+		// 다른 클래스의 객체를 참조하면 에러!
+		f = new Second();
+	}
+
+}

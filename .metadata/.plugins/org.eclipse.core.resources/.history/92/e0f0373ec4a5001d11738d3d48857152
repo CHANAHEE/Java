@@ -1,0 +1,35 @@
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+public class ClientTest {
+
+	public static void main(String[] args) {
+		// 7_ 클라이언트는 서버의 IP 주소 , port 번호를 알아야 접속할 수 있음.
+		String serverIP = null;
+		try {
+			serverIP = InetAddress.getLocalHost().getHostAddress();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// 8_ 클라이언트용 작업
+		try {
+			// 8_1 서버와 연결하는 socket 생성(ip주소, port 번호 전달)
+			Socket socket = new Socket(serverIP,10001);
+			System.out.println("서버와 연결이 되었습니다.");
+			
+			// 8_2 데이터를 전달하기 위한 무지개 로드(Stream) 만들기
+			// 데이터를 내보내는 스트림 : OutputStream
+			OutputStream os = socket.getOutputStream();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

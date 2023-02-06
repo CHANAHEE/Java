@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		String num = scan.nextLine();
+		
+		boolean isPNumber = false, isCNumber = false, correct = true;
+		
+		int idx = num.indexOf('-');
+		System.out.println(idx);
+		
+		String newNum = num.replaceAll("-", "");
+		
+		if(idx == -1) newNum.trim();
+		System.out.println(newNum + "  " + num);
+		
+		if(newNum.length() == 13) {
+			for(int i=0;i<newNum.length();i++) {
+				char ch = newNum.charAt(i);
+				correct = correct && (ch >= 48 && ch <= 57);
+			}
+			if(correct)
+				isPNumber = checkNum(newNum);
+		}else if(newNum.length() == 16) {
+			
+		}
+//		for(int i = 0; i < num.length() ; i++) {
+//			num.charAt(i)
+//		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		if(!isPNumber && !isCNumber) {
+			System.out.println("개인정보가 아닙니다.");
+		}else if(isPNumber) {
+			System.out.println("주민번호가 맞습니다.");
+		}else {
+			System.out.println("카드번호가 맞습니다.");
+		}
+	}
+	
+	// 파라미터로 넘겨줄때, - 구분자는 빼고 넘겨주기 
+	public static boolean checkNum(String num) {
+		int sum = 0, result = 0;
+		
+		for(int i=0;i<num.length()-1;i++) {
+			sum += (num.charAt(i)-48) * (i+2);
+			if(i == 9) i = 0;
+		}
+		result = (11 - (sum % 11)) % 10;
+		if(result == num.charAt(num.length()-1)) {
+			return true;
+		}
+		return false;
+		
+	}
+
+}

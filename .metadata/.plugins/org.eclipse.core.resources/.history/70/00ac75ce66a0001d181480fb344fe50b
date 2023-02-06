@@ -1,0 +1,19 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// 1_ 팀장이 인터페이스를 설계하고, 추상메소드의 이름을 정하면
+		// 팀원들은 그 이름을 토대로 기능을 구현하여 클래스를 설계.
+		
+		// 2_ 팀장 : Unit 인터페이스 설계.
+		// 팀원 1 : Marine 클래스 정의 및 Unit 기능 구현. -> Unit 이라면 가져야 할 기본기능을 구현.(메소드 이름 통일)
+		// 팀원 2 : Tank 클래스 정의 및 Unit 기능 구현.
+		// 팀원 3 : Race 클래스 정의 및 Unit 기능 구현.
+		
+		// 3_ Marine, Tank, Race 객체는 attack(), move() 기능이 있음을 확신함.-> Unit 이 가지고 있는 추상메소드 이므로.
+		
+	}
+
+}

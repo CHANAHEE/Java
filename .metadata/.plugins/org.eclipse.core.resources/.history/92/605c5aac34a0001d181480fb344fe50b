@@ -1,0 +1,8 @@
+
+public class Second {
+	int b;
+	
+	void showSecond() {
+		System.out.println("showSecond 입니다.");
+	}
+}

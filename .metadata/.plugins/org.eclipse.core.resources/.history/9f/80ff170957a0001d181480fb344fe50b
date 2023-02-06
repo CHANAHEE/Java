@@ -1,0 +1,13 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		// 68_ 추상클래스의 문법적 특징 알아보기. 어따써요? -> 이건 나중에 예제 많이 보고 해서 이해하자.
+		// 70_ 추상클래스는 곧바로 객체생성이 불가!
+		Test t;// 참조변수까지는 만들수 있다!
+		t = new Test();
+	}
+
+}

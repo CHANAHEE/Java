@@ -1,0 +1,13 @@
+import java.net.DatagramSocket;
+
+public class ReceiverTest {
+
+	public static void main(String[] args) {
+		// 3_ 받는 사용방식
+		
+		// 3_1 DatagramPacket 을 받을 우체통 준비하기
+		DatagramSocket socket = new DatagramSocket();
+		
+	}
+
+}

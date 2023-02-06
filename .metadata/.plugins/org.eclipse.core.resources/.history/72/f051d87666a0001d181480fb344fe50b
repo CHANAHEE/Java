@@ -1,0 +1,8 @@
+
+public class Tank extends Marine{
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+		super.move();
+	}
+}

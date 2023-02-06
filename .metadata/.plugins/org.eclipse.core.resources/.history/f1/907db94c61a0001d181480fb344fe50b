@@ -1,0 +1,4 @@
+
+public interface AAA {
+	abstract void aaa();
+}

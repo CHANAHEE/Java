@@ -1,0 +1,17 @@
+
+public class AnimalFactory {
+	// 애니멀(Dog, Cat, Pig) 객체를 생성하여, 리턴해주는 기능 메소드를 설계하자!
+	
+	void makeAnimal(int n) {
+		
+		switch(n) {
+		case 1:
+			Dog d = new Dog();
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		}
+	}
+}

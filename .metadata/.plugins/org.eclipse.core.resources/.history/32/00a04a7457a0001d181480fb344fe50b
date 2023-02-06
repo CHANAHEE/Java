@@ -1,0 +1,16 @@
+
+// 69_ 추상클래스 : 곧바로 객체생성을 할 수 없는 클래스. 즉 상속용으로만 존재하는 클래스
+public abstract class Test {
+	
+	int a;			// 인스턴스 변수
+	static int b;	// static 변수 
+	
+	// 생성자 메소드도 존재할 수 있음.
+	public Test() {
+		
+	}
+	void aaa( ) {
+		this.a = b;
+	}
+	
+}

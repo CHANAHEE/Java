@@ -1,0 +1,6 @@
+
+public class Dog {
+	void say() {
+		System.out.println("멍멍!");
+	}
+}

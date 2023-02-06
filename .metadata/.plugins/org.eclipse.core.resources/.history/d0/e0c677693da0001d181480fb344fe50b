@@ -1,0 +1,32 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		// 26_ 예) 앱에 동물 캐릭터 3종류(Dog, Cat, Pig) 각각의 클래스 만들기
+		Dog d = new Dog();
+		Cat c = new Cat();
+		Pig p = new Pig();
+		
+		// 27_ 각각의 기능 실행
+		d.say();
+		c.say();
+		p.say();
+		System.out.println();
+		
+		// 28_ 만약 이런 동물캐릭터가 여러마리라면??
+		// 즉, Dog 5마리 , Cat 10마리, Pig 4마리가 있다고 한다면 어떻게 할까?
+		// 하나씩 참조변수를 만드는것은 미친것 같음.
+		// 29_ 그래서 배운 배열이라는 개념을 생각해보자!
+		Dog[] dogs = new Dog[5];
+		dogs[0] = new Dog();
+		dogs[1] = new Dog();
+		dogs[2] = new Dog();
+				
+		dogs[0].say();
+		dogs[1].say();
+		dogs[2].say();
+	}
+
+}

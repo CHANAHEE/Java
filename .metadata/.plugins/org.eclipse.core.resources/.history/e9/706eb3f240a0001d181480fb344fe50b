@@ -1,0 +1,8 @@
+
+public class Dog extends Animal{
+	
+	private void show() {
+		// TODO Auto-generated method stub
+
+	}
+}

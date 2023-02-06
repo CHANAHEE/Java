@@ -1,0 +1,10 @@
+
+public class Main2 {
+
+	public static void main(String[] args) {
+		boolean b1,b2,b3;
+		
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+
+public class Nice extends Test{
+
+	@Override
+	void aaa() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

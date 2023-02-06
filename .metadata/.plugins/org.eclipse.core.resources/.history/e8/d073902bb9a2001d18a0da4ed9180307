@@ -1,0 +1,17 @@
+
+public class SleepTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+class SThread extends Thread {
+	@Override
+	public void run() {
+		// 10초 대기 후 "Hello" 글씨 출력
+		sleep(10000);
+	}
+}

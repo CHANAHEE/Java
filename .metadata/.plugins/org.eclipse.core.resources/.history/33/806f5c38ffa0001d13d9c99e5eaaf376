@@ -1,0 +1,17 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		// 1_ Object class : 모든 Java 클래스의 부모 클래스(최상위 클래스) 
+		// 2_ 자바 언어에 존재하는 모든 클래스들은 extends의 명시여부와 상관없이
+		// 무조건 Object 라는 클래스를 상속받은 상태로 만들어진다.
+		
+		// 4_ Test 참조변수 생성
+		Test t = new Test();
+		System.out.println(args.length);
+		
+	}
+
+}

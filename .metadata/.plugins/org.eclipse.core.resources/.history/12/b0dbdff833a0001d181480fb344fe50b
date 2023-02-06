@@ -1,0 +1,8 @@
+
+public class Second {
+	int b;
+	
+	void showSecond() {
+		
+	}
+}

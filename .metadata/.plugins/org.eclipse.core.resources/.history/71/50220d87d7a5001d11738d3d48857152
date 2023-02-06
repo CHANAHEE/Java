@@ -1,0 +1,20 @@
+import java.net.DatagramSocket;
+import java.net.SocketException;
+
+public class ReceiverTest {
+
+	public static void main(String[] args) {
+		// 3_ 받는 사용방식
+		
+		// 3_1 DatagramPacket 을 받을 우체통 준비하기
+		try {
+			DatagramSocket socket = new DatagramSocket(10003);
+			
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}
