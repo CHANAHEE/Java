@@ -16,7 +16,7 @@ public class ClientTest2 {
 			InputStream is = socket.getInputStream();
 			InputStreamReader isr = new InputStreamReader(is);
 			BufferedReader reader = new BufferedReader(isr);
-			
+			// gg 
 			while(true) {
 				String msg = reader.readLine();
 				if(msg == null) break;
