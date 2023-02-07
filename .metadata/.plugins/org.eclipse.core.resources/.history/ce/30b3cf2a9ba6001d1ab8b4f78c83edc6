@@ -1,0 +1,14 @@
+package test;
+
+import javax.swing.JFrame;
+
+public class MainFrame extends JFrame{
+
+	public MainFrame() {
+		setSize(600,600);
+	}
+	public static void main(String[] args) {
+		
+	}
+
+}

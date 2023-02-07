@@ -1,0 +1,12 @@
+import java.net.InetAddress;
+
+public class ClientTest {
+
+	public static void main(String[] args) {
+		// 7_ 클라이언트는 서버의 IP 주소 , port 번호를 알아야 접속할 수 있음.
+		
+		String serverIP = InetAddress.getLocalHost().getHostAddress();
+
+	}
+
+}

@@ -1,0 +1,78 @@
+
+public class ControlThread {
+
+	public static void main(String[] args) {
+		
+		// wait()와 notify() 연습 
+		// 1_ 타이어 조립하는 직원객체를 생성하자!
+		CThread t = new CThread();
+		t.start();
+		
+		// 5_ 그래서 한번 더 시키려고 다시 실행시켜 보았다.
+		// t.start(); // error!! : Thread 는 run 메소드가 끝나면 더이상 실행할 수 없다..!!! 일회용 실행임. 미친놈
+		
+		// 6_ 그러면 이렇게 해보자. 새로운 직원을 뽑아서 다시 실행시켜 보자.
+//		t = new CThread();
+//		t.start();
+		// 7_ 이렇게 하다보니, 비동기적 특성에 의해 내가 원하던 그림이 안나오고, 효율성도 안좋다. 그래서...
+		
+		
+		// 15_ 3초후에 스레드에게 잠시 휴식을 주기!
+		// 시간제한 없이 스레드의 동작을 멈추는 기능
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {}
+		
+		
+		// 10_ 3초후에 작업종료 , 즉, 퇴근을 시켜보자. - 스레드 종료!!
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {}
+		
+		// 11_ 스레드 종료
+	   //  t.stop(); // 사용을 권장하지 않음! 왜? 자원에 대한 리소스가 제대로 마무리되지 못하기 때문! 드륵드륵드륵 Stop!!
+		
+		// 12_ 그래서 while 문을 종료하면 결국 run 메소드가 종료되므로, 정상적으로 멈출수 있음.
+	    // while 문의 조건을 거짓으로 변경하자! 
+	    // t.isRun = false; 근데, 이것도 권장안함. 
+	    // 13_ 그래서 객체지향의 특징에 맞게 isRun 을 false 로 변경하는 메소드를 정의하여 사용하는 방식을 권장함.
+		// 14_ 기능메소드 호출!
+	    t.stopThread();
+	    
+	}
+
+}
+
+// 2_ 타이어 조립 작업을 하는 스레드 설계
+class CThread extends Thread {
+	
+	// 9_ 불린변수 하나 선언하자. 그리고 while 문 조건으로 넣어주자.
+	boolean isRun = true;
+	
+	@Override
+	public void run() {
+		// 3_ 4개의 타이어를 조립하자
+		
+		// 8_ 여기안에 조건을 써봐야겠네~ 근데 true 로 해놓으니 while 문 다음이 오류가 나네.
+		while(isRun) {
+			System.out.println("1번 타이어 조립");
+			System.out.println("2번 타이어 조립");
+			System.out.println("3번 타이어 조립");
+			System.out.println("4번 타이어 조립");
+			System.out.println();
+			
+			// 1초 동안 대기!
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {}
+		}
+		System.out.println("퇴근~");
+		System.out.println();
+	} // 4_ start() 를시작하면 여기까지 해야 끝난다. 그래서 너무 빨리 퇴근시키는것 같아서 여러번 하게 만들고싶다..
+	
+	// 13_1 Thread 의 while 문 조건을 거짓으로 변경하는 기능메소드 -> 스레드를 종료시키는 목적의 메소드
+	
+	public void stopThread() {
+		this.isRun = false;
+	}
+}

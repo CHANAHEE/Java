@@ -1,0 +1,45 @@
+import java.util.HashMap;
+import java.util.Set;
+
+public class MapTest {
+
+	public static void main(String[] args) {
+		
+		// 1_ Map : 키-밸류 쌍으로 데이터를 저장하는 방식이다.
+		
+		// Map 도 인터페이스 이므로 바로 객체생성은 불가하다.
+		// 대신 Map 인터페이스를 구현한 하위 클래스들 : HashMap , TreeMap, LinkedHashMap, HashTable
+		
+		// 2_ HashMap<T(key),S(value)>
+		HashMap<String, String> map = new HashMap<String,String>();
+		
+		// 3_ 요소추가
+		map.put("name", "sam"); // (식별자, 값)
+		map.put("id", "CHA");
+		map.put("pass", "1234");
+		
+		// 4_ 요소개수
+		System.out.println(map.size());
+		
+		// 5_ 요소값 얻어오기
+		System.out.println(map.get("name")); // 키값으로 얻어오기
+		System.out.println(map.get("id"));
+		
+		// 6_ 데이터는 중복되지만 키 값이 다르기에 추가됨.
+		map.put("kkk", "sam"); 
+		// 7_ 키 값이 중복되면 새로 추가되지 않고 그 위치값이 변경됨!
+		map.put("kkk", "hong");
+
+		// 8_ 순서대로 요소값을 얻어오기
+		// 방법 1. for 문 불가 - 인덱스 번호가 없으니까!
+		// 방법 2. 확장 for 문 불가 - 내부적으로 key 값에 접근하는 방법이 없다!
+		// 방법 3. 우선 키값 부터 Set 객체로 우선 얻어와서 반복문으로 처리
+		Set<String> keys = map.keySet();
+		
+		// 1.1 key 들을 가진 Set 컬렉션 객체를 반복문으로 접근
+		for(String key : keys) {
+			System.out.println(key);
+		}
+	}
+
+}

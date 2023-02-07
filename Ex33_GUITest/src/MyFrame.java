@@ -1,0 +1,26 @@
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class MyFrame extends JFrame{
+	JTextArea ta;
+	JTextField tf;
+	
+	// 2_ 생성자 메소드
+	public MyFrame() {
+		// 3_ 객체가 생성될 때 본인의 설정을 모두 해놓기
+		setSize(500, 500);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		setLocation(750, 250);
+		tf = new JTextField("Hello",20);
+		add(tf,BorderLayout.SOUTH);
+		
+		ta = new JTextArea();
+		setVisible(true);
+	}
+	
+	
+}

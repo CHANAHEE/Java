@@ -1,0 +1,16 @@
+import javax.swing.JFrame;
+
+public class NumberGame extends JFrame{
+	
+	// 1_
+	public NumberGame() {
+		setSize(500,500);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

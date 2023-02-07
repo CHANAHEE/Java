@@ -1,0 +1,36 @@
+import java.awt.BorderLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class NumberGame extends JFrame{
+	// 2_
+	JLabel label;
+	JButton btn;
+	JTextField tf;
+	
+	// 1_
+	public NumberGame() {
+		setSize(500,500);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setTitle("숫자 맞히기 게임");
+		setLocationRelativeTo(rootPane);
+		
+		label = new JLabel("0~50 중 랜덤한 숫자를 맞춰보세요");
+		btn = new JButton("확\t인");
+		tf = new JTextField();
+		
+		add(label,BorderLayout.NORTH);
+		add(btn,BorderLayout.CENTER);
+		add(tf,BorderLayout.SOUTH);
+		
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		new NumberGame();
+		
+	}
+
+}

@@ -1,0 +1,55 @@
+package test;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class MainFrame {
+
+
+	
+	public MainFrame() {
+		User1_Thread ut1 = new User1_Thread();
+		User2_Thread ut2 = new User2_Thread();
+		
+		ut1.start();
+		ut2.start();
+	}
+	public static void main(String[] args) {
+		new MainFrame();
+		
+	}
+
+}
+
+class User1_Thread extends Thread {
+	@Override
+	public void run() {
+		User1 user1 = new User1();
+		
+		user1.btn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String msg = user1.tf.getText();
+				user1.ta.setText(msg);
+			}
+		});
+		
+	}
+}
+
+class User2_Thread extends Thread {
+	@Override
+	public void run() {
+		User2 user2 = new User2();
+		
+		user2.btn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				user2.tf.getText();
+				
+			}
+		});
+	}
+}

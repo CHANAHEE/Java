@@ -1,0 +1,14 @@
+
+public class Main {
+	public static void main(String[] args) {
+		
+		// 1_ Generic [ 제네릭 - 아직 명칭이 정해지지 않은 상품 (제네릭 상품) ]
+		// 즉, class 를 설계할 때 멤버의 자료형을 정하지 않고 
+		// 객체를 생성(new) 할 때 결정하도록 하는 문법
+		
+		// 2_ 데이터를 하나 저장할 수 있는 클래스 설계 [ 그런데, 자료형을 미리 정하지 않고 설계] -> Box 클래스
+		
+		// 5_ 
+		Box<String> box = new Box();
+	}
+}

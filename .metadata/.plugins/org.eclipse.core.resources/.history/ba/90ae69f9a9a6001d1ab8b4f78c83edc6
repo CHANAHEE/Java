@@ -1,0 +1,44 @@
+import java.awt.BorderLayout;
+import java.util.Random;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class NumberGame extends JFrame{
+	// 2_
+	JLabel label;
+	JButton btn;
+	JTextField tf;
+	
+	int com; // 컴퓨터가 만들 랜덤한 숫자값 저장 변수 
+	// 1_
+	public NumberGame() {
+		Random rand = new Random();
+		com = rand.nextInt(50);
+		setSize(500,500);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setTitle("숫자 맞히기 게임");
+		setLocationRelativeTo(rootPane);
+		
+		label = new JLabel("0~50 중 랜덤한 숫자를 맞춰보세요");
+		// 3_
+		label.setHorizontalAlignment(JLabel.CENTER);
+		btn = new JButton("확\t인");
+		tf = new JTextField();
+		// 4_
+		tf.setHorizontalAlignment(JTextField.CENTER);
+		
+		add(label,BorderLayout.NORTH);
+		add(btn,BorderLayout.CENTER);
+		add(tf,BorderLayout.SOUTH);
+		
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		new NumberGame();
+		
+	}
+
+}

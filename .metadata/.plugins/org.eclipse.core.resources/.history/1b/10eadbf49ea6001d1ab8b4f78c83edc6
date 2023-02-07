@@ -1,0 +1,28 @@
+package test;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class MainFrame extends JFrame{
+
+	JPanel panel1;
+	
+	public MainFrame() {
+		setSize(600,600);
+		setLocationRelativeTo(rootPane);
+		setTitle("채팅 프로그램");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		panel1 = new JPanel();
+		
+		
+		
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		new MainFrame();
+		panel1
+	}
+
+}

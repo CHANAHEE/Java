@@ -1,0 +1,12 @@
+import java.util.Scanner;
+
+public class FileOutput {
+
+	public static void main(String[] args) {
+		
+		// 1_ 사용자로 부터 데이터를 입력받아 File 에 저장하는 프로그램
+		Scanner scan = new Scanner(System.in);
+
+	}
+
+}

@@ -1,0 +1,9 @@
+import javax.swing.JFrame;
+
+public class MyFrame extends JFrame{
+	
+	// 2_ 생성자 메소드
+	public MyFrame() {
+		this.setSize(500, 500);
+	}
+}

@@ -1,0 +1,55 @@
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class ButtonEventTest extends JFrame {
+	
+	// 2_ 생성자 메소드로 초기값 설정
+	public ButtonEventTest() {
+		setSize(500,500);
+		setTitle("버튼 클릭 이벤트 처리");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(rootPane);
+		
+		// 3_ 간단하게 옆으로 배치되도록 배치관리자를 변경해보자
+		setLayout(new FlowLayout());
+		
+		// 4_ 버튼을 클릭하여 Label 의 글씨를 변경해보자!
+		JButton btn = new JButton("버튼");
+		JButton btn2 = new JButton("버튼2");
+		JLabel label = new JLabel("Hello Java");
+		
+		// 5_ frame 에 붙이기
+		add(btn,BorderLayout.NORTH);
+		add(btn2,BorderLayout.CENTER);
+		add(label,BorderLayout.WEST);
+		
+		// 6_ 버튼(btn)이 클릭되는 것을 듣는 리스너객체를 생성하자 그리고 버튼에 달아보자.
+		// 6_1 리스너 객체 생성
+		// ActionListener listener = new ActionListener(); // 인터페이스는 곧바로 객체생성이 불가능!
+		
+		// 6_2 버튼에 리스너 붙이기
+		btn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new ButtonEventTest(); // 1_JFrame 능력을 가진 클래스를 객체로 생성
+	}
+
+}

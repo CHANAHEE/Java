@@ -1,0 +1,75 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+public class ClientTest {
+
+	public static void main(String[] args) {
+		// 7_ 클라이언트는 서버의 IP 주소 , port 번호를 알아야 접속할 수 있음.
+		String serverIP = null;
+		
+		// 15_ 본인 PC 를 말하는 IP 주소!
+		serverIP = "127.0.0.1";
+		// 16_ 본인 PC 의 식별명! -> 일종의 도메인역할 
+		serverIP = "localhost";
+		try {
+			serverIP = InetAddress.getLocalHost().getHostAddress();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// 8_ 클라이언트용 작업
+		try {
+			// 8_1 서버와 연결하는 socket 생성(ip주소, port 번호 전달)
+			Socket socket = new Socket(serverIP,10001);
+			System.out.println("서버와 연결이 되었습니다.");
+			
+			// 8_2 데이터를 전달하기 위한 무지개 로드(Stream) 만들기
+			// 데이터를 내보내는 스트림 : OutputStream
+			OutputStream os = socket.getOutputStream();
+			// 보조문자 스트림을 사용하면 write 작업보다 수월하게 처리할 수 있다.
+			PrintWriter writer = new PrintWriter(os);
+			System.out.println("스트림 연결 성공! ... 데이터 전송 가능");
+			
+			// 8_3 보낼 데이터를 키보드로 입력받자
+			Scanner scan = new Scanner(System.in);
+			
+			// 8_4 스트림을 통해 데이터를 전송하자
+//			System.out.print("보낼 메시지를 입력하세요");
+//			String msg = scan.nextLine();
+//			writer.println(msg);
+//			writer.flush();
+			
+			InputStream is = socket.getInputStream();
+			InputStreamReader isr = new InputStreamReader(is);
+			BufferedReader reader = new BufferedReader(isr);
+			
+			// 12_ 여러번 받아보자!!
+			while(true) {
+				System.out.print("보낼 메시지를 입력하세요(exit를 입력하면 종료)");
+				String msg = scan.nextLine();
+				if(msg.equalsIgnoreCase("exit")) break;
+				writer.println(msg);
+				writer.flush();
+				
+				String msg2 = reader.readLine();
+			}
+			writer.close();
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

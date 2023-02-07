@@ -1,0 +1,38 @@
+
+public class SynchronizedTest {
+
+	public static void main(String[] args) {
+		
+		// 1_ 용어정리
+		// 동기화 처리 : Thread 를 사용하는 것은 비동기 처리를 의미함. 이로 인한 문제 해결하는 기법.
+		// 동기 (Synchronize) : A 작업이 끝나면 그 다음에 B 작업을 해라~ 정도로 이해해보자. 동시가 아님!
+		// 비동기 (Asynchronize) : A 작업 할때, B 작업을 동시에 하는것. 시작시점이 똑같다는 의미는 아니고, A 가 사용중인데, B작업을 할때 라는 의미.
+		
+		// 2_ 계좌 객체를 생성해보자.
+		Account acc = new Account();
+		acc.add(100);
+		acc.add(200);
+	}
+
+}
+
+// 3_ 계좌 객체
+class Account {
+	
+	int money = 0;
+	
+	// 4_ 입금 기능
+	public void add(int money) {
+		System.out.println("입금 작업을 시작합니다.");
+		System.out.println("현재 잔액 : " + money);
+		this.money += money;
+		
+		// 5_ 전산처리시간을 가정하여 임의로 오래걸리는 코드를 작성해놓자. 동기화 처리 확인해보게~
+		for(long i = 0; i < 30000000000L; i++) {
+			new String();
+		}
+		System.out.println("입금 후 잔액 : " + money);
+		
+		System.out.println();
+	}
+}

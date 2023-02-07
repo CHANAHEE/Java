@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class StringIOTest {
+
+	public static void main(String[] args) {
+		
+		// 1_ 문자열 데이터를 한줄씩 또는 한단어씩 읽거나 쓰려면??
+		// 기존 바이트스트림 방식은 InputStream 을 통해서 몇바이트를 읽어야 한줄인지 파악하기 어려울 수 있다. 
+		// 그래서 조금 더 편하게 문자열 단위로 데이터를 IO 를 처리하는 문자 스트림을 사용해보자.
+		// Reader, Writer
+		
+		// 사용자 입력을 받아 그 데이터를 파일에 지속적으로 저장하는 프로그램을 만들어보자.
+		Scanner scan = new Scanner(System.in);
+		
+		while(true) {
+			System.out.print("저장할 단어를 입력하세요(exit를 입력하면 종료) : ");
+			String s = scan.next();
+			if(s.equals("exit")) {
+				System.out.println("입력이 종료됩니다.");
+				break;
+			}
+			
+		}
+	}
+
+}

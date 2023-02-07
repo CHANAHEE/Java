@@ -1,0 +1,6 @@
+// 2번
+public class FileInputTest {
+
+	// 1_ 읽어올 파일의 파일명을 관리하는 객체 생성
+	File file = new File("aaa.txt");
+}

@@ -1,0 +1,20 @@
+
+public class JoinTest {
+	public static void main(String[] args) {
+		JThread j = new JThread();
+		j.start();
+	}
+}
+
+// 1_ 클래스 생성
+class JThread extends Thread {
+	@Override
+	public void run() {
+		for(int i = 0; i < 10; i++) {
+			System.out.println("aaa");
+			try {
+				Thread.sleep(500); // 2_ 헷갈리니까 Thread. 을 적어주는게 좋다. 권장하는 방법. Thread 의 static 메소드라는걸 명시해주자!
+			} catch (InterruptedException e) {}
+		}
+	}
+}

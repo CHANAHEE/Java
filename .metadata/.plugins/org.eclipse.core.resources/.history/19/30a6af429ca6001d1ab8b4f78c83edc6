@@ -1,0 +1,11 @@
+package test;
+
+import javax.swing.JTextArea;
+
+public class TextAreaFrame {
+	public TextAreaFrame(MainFrame frame) {
+		JTextArea ta = new JTextArea();
+		frame.add(frame)
+	}
+
+}

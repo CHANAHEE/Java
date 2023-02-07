@@ -1,0 +1,40 @@
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class ButtonEventTest extends JFrame {
+	
+	// 2_ 생성자 메소드로 초기값 설정
+	public ButtonEventTest() {
+		setSize(500,500);
+		setTitle("버튼 클릭 이벤트 처리");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(rootPane);
+		
+		// 3_ 간단하게 옆으로 배치되도록 배치관리자를 변경해보자
+		setLayout(new FlowLayout());
+		
+		// 4_ 버튼을 클릭하여 Label 의 글씨를 변경해보자!
+		JButton btn = new JButton("버튼");
+		JLabel label = new JLabel("Hello Java");
+		
+		// 5_ frame 에 붙이기
+		add(btn);
+		add(label);
+		
+		setLayout(new BorderLayout());
+		add(btn,BorderLayout.SOUTH);
+		
+		
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new ButtonEventTest(); // 1_JFrame 능력을 가진 클래스를 객체로 생성
+	}
+
+}

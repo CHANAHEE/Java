@@ -1,0 +1,38 @@
+package test;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class MainFrame extends JFrame{
+
+	JPanel panel1,panel2;
+	JTextField tf;
+	JButton btn;
+	
+	public MainFrame() {
+		setSize(600,600);
+		setLocationRelativeTo(rootPane);
+		setTitle("채팅 프로그램");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		
+		panel1 = new JPanel();
+		panel1.setLayout(new BorderLayout());
+		tf = new JTextField();
+		btn = new JButton("확인");
+		panel1.add(tf,BorderLayout.CENTER);
+		panel1.add(btn,BorderLayout.EAST);
+		add(panel1);
+		
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		new MainFrame();
+		
+	}
+
+}

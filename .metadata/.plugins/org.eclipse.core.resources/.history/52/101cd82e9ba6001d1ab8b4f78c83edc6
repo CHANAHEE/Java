@@ -1,0 +1,17 @@
+package test;
+
+import javax.swing.JFrame;
+
+public class MainFrame extends JFrame{
+
+	public MainFrame() {
+		setSize(600,600);
+		setLocationRelativeTo(rootPane);
+		setTitle("채팅 프로그램");
+		
+	}
+	public static void main(String[] args) {
+		
+	}
+
+}

@@ -1,0 +1,17 @@
+package test;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
+public class TextFieldFrame {
+	public TextFieldFrame(MainFrame frame) {
+		JTextField tf = new JTextField();
+		JButton inputBtn = new JButton();
+		frame.add(tf,BorderLayout.CENTER);
+		frame.add(tf)
+		frame.setVisible(true);
+	}
+
+}

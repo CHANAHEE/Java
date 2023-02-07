@@ -1,0 +1,12 @@
+package test;
+
+import javax.swing.JTextField;
+
+public class TextFieldFrame {
+	public TextFieldFrame(MainFrame frame) {
+		JTextField tf = new JTextField();
+		
+		frame.add(tf);
+	}
+
+}

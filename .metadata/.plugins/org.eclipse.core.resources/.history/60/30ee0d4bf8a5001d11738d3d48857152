@@ -1,0 +1,12 @@
+import java.net.Socket;
+
+public class ClientTest2 {
+
+	public static void main(String[] args) {
+		String serverIP = "localhost";
+		
+		Socket socket = new Socket();
+
+	}
+
+}

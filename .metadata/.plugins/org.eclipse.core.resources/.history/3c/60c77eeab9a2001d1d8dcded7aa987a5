@@ -1,0 +1,34 @@
+
+public class SleepTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		SThread t = new SThread();
+		t.start();
+		
+		// 5초 후에 깨우기 
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}
+
+class SThread extends Thread {
+	@Override
+	public void run() {
+		// 10초 대기 후 "Hello" 글씨 출력
+		try {
+			sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("Hello");
+	}
+}

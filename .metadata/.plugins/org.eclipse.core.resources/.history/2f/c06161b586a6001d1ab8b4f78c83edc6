@@ -1,0 +1,47 @@
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// 1_ GUI 프로그래밍
+		// 자바언어에서 GUI 개발을 위해 미리 설계된 클래스들의 묶음 API 를 제공함.
+		
+		// 1. AWT
+		// 2. Swing -> 요걸 사용하자
+		// 3. JavaFX - 별도 프로그램 설치 필요
+		
+		// 2_ GUI 맛보기로 Swing API 사용
+		
+		// 2_1 최상위 컨테이터 생성
+		JFrame frame = new JFrame("카카오톡");
+		frame.setSize(500, 400);
+		
+		// 2_7 기본적으로 JFrame 은 BorderLayout 이라는 배치관리자가 설정되어 있음.
+		// 가장 쉬운 레이아웃매니저인 FlowLayout 으로 변경.
+		FlowLayout fl = null;
+		frame.setLayout(fl);
+		// 2_4 컴포넌트 추가하기
+		JButton b1 = new JButton("버튼");
+		JButton b2 = new JButton("추가하기");
+		
+		b1.setSize(80, 80);
+		
+		// 2_5 컨테이너에 추가하기
+		// 2_6 배치관리자(LayoutManager) 사용해보기
+		frame.add(b1,BorderLayout.NORTH);
+		frame.add(b2,BorderLayout.CENTER);
+		
+		// 2_3 기본적으로 JFrame 의 x 버튼을 눌러서 창을 닫아도, 프래그램이 종료되지않는다.
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocation(300, 200);;
+		
+		// Jframe 에게 물어보자. ON ~ 했을 때!
+		// 2_2 최상위 컨테이너를 화면에 보이자
+		frame.setVisible(true);
+	}
+
+}

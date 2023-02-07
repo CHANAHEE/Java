@@ -1,0 +1,33 @@
+package test;
+
+
+
+public class MainFrame {
+
+
+	
+	public MainFrame() {
+
+	}
+	public static void main(String[] args) {
+		new MainFrame();
+		
+	}
+
+}
+
+class User1_Thread extends Thread {
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+	}
+}
+
+class User2_Thread extends Thread {
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+	}
+}

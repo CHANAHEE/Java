@@ -1,0 +1,22 @@
+
+public class ControlThread {
+
+	public static void main(String[] args) {
+		
+		// wait()와 notify() 연습 
+		// 1_ 타이어 조립하는 직원객체를 생성하자!
+	}
+
+}
+
+// 2_ 타이어 조립 작업을 하는 스레드 설계
+class CThread extends Thread {
+	@Override
+	public void run() {
+		// 3_ 4개의 타이어를 조립하자
+		System.out.println("1번 타이어 조립");
+		System.out.println("2번 타이어 조립");
+		System.out.println("3번 타이어 조립");
+		System.out.println("4번 타이어 조립");
+	}
+}

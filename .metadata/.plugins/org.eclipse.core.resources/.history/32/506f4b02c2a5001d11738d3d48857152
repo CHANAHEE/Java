@@ -1,0 +1,25 @@
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+public class ClientTest {
+
+	public static void main(String[] args) {
+		// 7_ 클라이언트는 서버의 IP 주소 , port 번호를 알아야 접속할 수 있음.
+		String serverIP = "172.30.1.124";
+	
+		
+		// 8_ 클라이언트용 작업
+		// 8_1 서버와 연결하는 socket 생성(ip주소, port 번호 전달)
+		try {
+			Socket socket = new Socket(serverIP,10001);
+			System.out.println("서버와 연결이 되었습니다.");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

@@ -1,0 +1,13 @@
+import javax.swing.JFrame;
+
+public class MyFrame extends JFrame{
+	
+	// 2_ 생성자 메소드
+	public MyFrame() {
+		// 3_ 객체가 생성될 때 본인의 설정을 모두 해놓기
+		this.setSize(500, 500);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setVisible(true);
+		this.setLocationRelativeTo(this);
+	}
+}

@@ -1,0 +1,14 @@
+
+public class RunableTest {
+
+	public static void main(String[] args) {
+		
+		// 1_ Thread 능력( 코드를 실행할 수 있는 능력) 을 가지는 2가지 방법
+		// 1_1 Thread 클래스를 상속한(extends) 클래스를 설계하여 사용하는 방법
+		// 1_2 Runable 인터페이스!! 를 구현한 (implements) 클래스를 설계하여 사용하는 방법
+		
+		// 2_ 왜 2가지 방법이나 있지..??
+
+	}
+
+}

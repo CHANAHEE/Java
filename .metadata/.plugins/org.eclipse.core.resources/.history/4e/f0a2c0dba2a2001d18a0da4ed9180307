@@ -1,0 +1,59 @@
+
+public class RunnableTest {
+
+	public static void main(String[] args) {
+		
+		// 1_ Thread 능력( 코드를 실행할 수 있는 능력) 을 가지는 2가지 방법
+		// 1_1 Thread 클래스를 상속한(extends) 클래스를 설계하여 사용하는 방법
+		// 1_2 Runable 인터페이스!! 를 구현한 (implements) 클래스를 설계하여 사용하는 방법
+		
+		// 2_ 왜 2가지 방법이나 있지..??
+		// 다중상속의 효과를 보고싶어서 Runable 을 이용한다~
+		// Person 클래스의 능력을 가지면서 Thread 의 능력도 있었으면 좋겠다..
+		// 자바는 다중상속이 금지되어 있음. 대신 인터페이스의 구현은 다중구현이 가능하다! 그래서 여러능력을 가질 수 있음. 
+		
+		// 6_ 객체 생성!
+		PersonThread pt = new PersonThread();
+		
+		// 7_ 스레드를 실행하려면 run() 을 실행하려면 '자동실행시켜주는 기능이 작성된' .start() 메서드를 호출해야함!!
+		// pt.start();//error!! -> Runnable 은 인터페이슨데 말이 안되지... 기능이 작성되어 있는게 아니라 추상메서드만 있잖니..
+		// Runnable 인터페이스를 구현한 객체의 run() 을 실행시켜 주는 별도의 객체가 필요하다!
+		
+		
+		// 8_ Thread 의 존재목적은 Runnable 을 트리거 하기 위해 만들어짐. 근데 그러려면 두번 작성해야하니, Thread 로 실행시킬 수 있게 발전됨.
+		// Thread 객체를 생성하면서 생성자 메서드에 파라미터로 Runnable 을 구현한 객체를 전달하면 스레드 객체를 start() 할때 자동 run() 이 발동됨. 
+		Thread t = new Thread(pt);// 파라미터로 전달받은 Runnable 을 실행해~ 라고 적혀있음. 
+		t.start(); // t는 단순히 트리거의 역할!
+
+	}
+
+}
+
+// 3_ Person 클래스 설계
+class Person {
+	String name;
+	int age;
+	
+}
+
+// 4_  Person 클래스의 멤버를 상속받으면서 Thread 의 역할도 하는 클래스를 설계
+class PersonThread extends Person implements Runnable{
+
+	
+	@Override
+	public void run() {
+		
+		// 5_ 1초마다 이름, 나이를 출력하는 코드작성
+		for( int i = 0; i<5; i++) {
+			System.out.println(name + ", " + age);
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+}
