@@ -1,6 +1,12 @@
 package test;
 
 import java.awt.BorderLayout;
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,10 +23,11 @@ public class User1 extends JFrame{
 	JTextField tf;
 	JButton btn;
 	
+	
 	public User1() {
 		setSize(300,450);
 		setLocationRelativeTo(rootPane);
-		setTitle("채팅 프로그램");
+		setTitle("채팅 프로그램 user1");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		
@@ -34,10 +41,12 @@ public class User1 extends JFrame{
 		
 		
 		panel2 = new JPanel();
-		label = new JLabel();
-		panel2.add(label);
+		ta = new JTextArea();
+		panel2.add(ta);
 		add(panel2,BorderLayout.CENTER);
+		
 		
 		setVisible(true);
 	}
+	
 }

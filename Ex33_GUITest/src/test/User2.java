@@ -20,7 +20,7 @@ public class User2 extends JFrame{
 	public User2() {
 		setSize(300,450);
 		setLocationRelativeTo(rootPane);
-		setTitle("채팅 프로그램");
+		setTitle("채팅 프로그램 user2");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		
@@ -34,8 +34,8 @@ public class User2 extends JFrame{
 		
 		
 		panel2 = new JPanel();
-		label = new JLabel();
-		panel2.add(label);
+		ta = new JTextArea();
+		panel2.add(ta);
 		add(panel2,BorderLayout.CENTER);
 		
 		setVisible(true);
