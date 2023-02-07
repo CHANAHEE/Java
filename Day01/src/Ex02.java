@@ -10,6 +10,7 @@ public class Ex02 {
 		System.out.println('1' + 2);
 		System.out.println('1' + '2');
 		System.out.println();
+		// HELLO
 		
 		int _hel = 10;
 		int $MAX_NUM = 10;
